@@ -36,22 +36,22 @@ jobs:
       - name: Check for macOS
         if: ${{ matrix.os == 'macos-latest' }}
         run: |
-          OS=mac
-          DESTINATION=darwin
+          echo "os=mac" >> $GITHUB_ENV
+          echo "destination=darwin" >> $GITHUB_ENV
 
       - name: Check for Ubuntu
         if: ${{ matrix.os == 'ubuntu-latest' }}
         run: |
-          OS=ubuntu
-          DESTINATION=linux
+          echo "os=ubuntu" >> $GITHUB_ENV
+          echo "destination=linux" >> $GITHUB_ENV
 
       - name: Check for Windows
         if: ${{ matrix.os == 'windows-latest' }}
         run: |
-          OS=windows
-          DESTINATION=win32
+          echo "os=windows" >> $GITHUB_ENV
+          echo "destination=win32" >> $GITHUB_ENV
 
       - name: Check variable
         run: |
-          echo OS is $OS
-          echo DESTINATION is $DESTINATION
+          echo OS is ${{ env.os }}
+          echo DESTINATION is ${{ env.destination }}

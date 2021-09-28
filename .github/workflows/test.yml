@@ -34,19 +34,19 @@ jobs:
         #  3. windows-latest
 
       - name: Check for macOS
-        if: ${{ matrix.os == "macos-latest" }}
+        if: ${{ matrix.os == 'macos-latest' }}
         run: |
           OS=mac
           DESTINATION=darwin
 
       - name: Check for Ubuntu
-        if: ${{ matrix.os == "ubuntu-latest" }}
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         run: |
           OS=ubuntu
           DESTINATION=linux
 
       - name: Check for Windows
-        if: ${{ matrix.os == "windows-latest" }}
+        if: ${{ matrix.os == 'windows-latest' }}
         run: |
           OS=windows
           DESTINATION=win32

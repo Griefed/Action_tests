@@ -1,0 +1,57 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - master
+      - main
+      - develop
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+
+    steps:
+      # GET LATEST CODE
+      - name: Checkout latest code
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+
+      - name: We are running on
+        run: echo matrix.os is ${{ matrix.os }}
+        # Either:
+        #  1. macos-latest
+        #  2. ubuntu-latest
+        #  3. windows-latest
+
+      - name: Check for macOS
+        if: ${{ matrix.os == "macos-latest" }}
+        run: |
+          OS=mac
+          DESTINATION=darwin
+
+      - name: Check for Ubuntu
+        if: ${{ matrix.os == "ubuntu-latest" }}
+        run: |
+          OS=ubuntu
+          DESTINATION=linux
+
+      - name: Check for Windows
+        if: ${{ matrix.os == "windows-latest" }}
+        run: |
+          OS=windows
+          DESTINATION=win32
+
+      - name: Check variable
+        run: |
+          echo OS is $OS
+          echo DESTINATION is $DESTINATION

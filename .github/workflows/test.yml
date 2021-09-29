@@ -1,57 +1,32 @@
-name: Test
+name: Contributors
 
 on:
-  push:
-    branches:
-      - master
-      - main
-      - develop
-  pull_request:
-    branches:
-      - master
+  schedule:
+    - cron: '0 1 * * 0'
   workflow_dispatch:
 
 jobs:
-  test:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
-
+  package-json:
+    runs-on: ubuntu-latest
     steps:
-      # GET LATEST CODE
-      - name: Checkout latest code
-        uses: actions/checkout@master
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: wow-actions/update-contributors@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          affiliation: all
+          commit_message: "chore: Update Collaborators, Contributors etc. in package.json"
+  readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
 
-      - name: We are running on
-        run: echo matrix.os is ${{ matrix.os }}
-        # Either:
-        #  1. macos-latest
-        #  2. ubuntu-latest
-        #  3. windows-latest
-
-      - name: Check for macOS
-        if: ${{ matrix.os == 'macos-latest' }}
-        run: |
-          echo "os=mac" >> $GITHUB_ENV
-          echo "destination=darwin" >> $GITHUB_ENV
-
-      - name: Check for Ubuntu
-        if: ${{ matrix.os == 'ubuntu-latest' }}
-        run: |
-          echo "os=ubuntu" >> $GITHUB_ENV
-          echo "destination=linux" >> $GITHUB_ENV
-
-      - name: Check for Windows
-        if: ${{ matrix.os == 'windows-latest' }}
-        run: |
-          echo "os=windows" >> $GITHUB_ENV
-          echo "destination=win32" >> $GITHUB_ENV
-
-      - name: Check variable
-        run: |
-          echo OS is ${{ env.os }}
-          echo DESTINATION is ${{ env.destination }}
+      - uses: akhilmhdh/contributors-readme-action@v2.2
+        with:
+          collaborators: all
+          commit_message: "chore: Update Collaborators, Contributors etc. in README"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

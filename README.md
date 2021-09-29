@@ -1,6 +1,16 @@
 Simple test repo for GitHub actions
 
-# Contributors and Collaborators
+## Contributors & Collaborators
 
-<!-- readme: collaborators,contributors,sponsors,bots -start -->
-<!-- readme: collaborators,contributors,sponsors,bots -end -->
+<!-- readme: collaborators,contributors -start -->
+<!-- readme: collaborators,contributors -end -->
+
+## Sponsors
+
+<!-- readme: sponsors -start -->
+<!-- readme: sponsors -end -->
+
+## Bots
+
+<!-- readme: bots -start -->
+<!-- readme: bots -end -->

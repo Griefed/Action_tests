@@ -28,4 +28,5 @@ jobs:
         with:
           collaborators: all
           commit_message: "chore: Update Collaborators, Contributors etc. in README"
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

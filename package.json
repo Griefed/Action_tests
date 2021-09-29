@@ -51,6 +51,11 @@
       "name": "Griefed",
       "email": "griefed@griefed.de",
       "url": "https://github.com/Griefed"
+    },
+    {
+      "name": "github-actions[bot]",
+      "email": "41898282+github-actions[bot]@users.noreply.github.com",
+      "url": "https://github.com/apps/github-actions"
     }
   ]
 }

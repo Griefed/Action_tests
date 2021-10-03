@@ -22,7 +22,7 @@ Simple test repo for GitHub actions
 <tr>
     <td align="center">
         <a href="https://github.com/kreezxil">
-            <img src="https://avatars.githubusercontent.com/u/3880072?v=4" width="100;" alt="kreezxil"/>
+            <img src="https://avatars.githubusercontent.com/u/3880072?u=f320cce8b9bf44541e86499cdf40fcb6b7ff8667&v=4" width="100;" alt="kreezxil"/>
             <br />
             <sub><b>Kreezxil</b></sub>
         </a>

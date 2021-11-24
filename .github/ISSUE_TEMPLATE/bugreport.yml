@@ -21,9 +21,18 @@ body:
     id: what-happened
     attributes:
       label: What happened?
-      description: What did you expect to happen?
+      description: Describe, in detail, what happened.
       placeholder: Tell us what you see!
-      value: "Detailed explanation on what happened and what you expected goes here!"
+      value: "Detailed explanation on what happened goes here!"
+    validations:
+      required: true
+- type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+      description: Describe, in detail, what you expected to happen.
+      placeholder: Tell us what you wanted to see!
+      value: "Detailed explanation on what you expected goes here!"
     validations:
       required: true
   - type: dropdown
@@ -45,6 +54,7 @@ body:
         - Firefox
         - Chrome
         - Safari
+        - Opera
         - Microsoft Edge
     validations:
       required: false

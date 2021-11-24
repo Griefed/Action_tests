@@ -64,6 +64,15 @@ body:
       label: Relevant log output
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
+  - type: textarea
+    id: anything-else
+    attributes:
+      label: Anything else you would like to add?
+      description: Any additional info you would like to add?
+      placeholder: Tell me!
+      value: "Tell me!"
+    validations:
+      required: true
   - type: checkboxes
     id: terms
     attributes:

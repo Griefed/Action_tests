@@ -6,30 +6,30 @@ on:
   workflow_dispatch:
 
 jobs:
-  package-json:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: wow-actions/update-contributors@v1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          affiliation: all
-          commit_message: "chore: Update Collaborators, Contributors etc. in package.json"
-  readme:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - uses: akhilmhdh/contributors-readme-action@v2.2
-        with:
-          collaborators: all
-          commit_message: "chore: Update Collaborators, Contributors etc. in README"
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+#  package-json:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#        with:
+#          fetch-depth: 0
+#      - uses: wow-actions/update-contributors@v1
+#        with:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          affiliation: all
+#          commit_message: "chore: Update Collaborators, Contributors etc. in package.json"
+#  readme:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#        with:
+#          fetch-depth: 0
+#
+#      - uses: akhilmhdh/contributors-readme-action@v2.2
+#        with:
+#          collaborators: all
+#          commit_message: "chore: Update Collaborators, Contributors etc. in README"
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.TOKEN }}
   webhook:
     runs-on: ubuntu-latest
     steps:
@@ -54,7 +54,7 @@ jobs:
             --author-icon "https://i.griefed.de/images/2022/01/21/sam_1500x1500.th.jpg" \
             --image "https://i.griefed.de/images/2021/05/08/app.png" \
             --thumbnail "https://i.griefed.de/images/2020/11/18/Prosper_Docker_300x300.th.png" \
-            --field "Author;[Griefed]($GITHUB_SERVER_URL/Griefed" \
+            --field "Author;[Griefed]($GITHUB_SERVER_URL/Griefed)" \
             --field "Platform;[GitHub]($GITHUB_SERVER_URL)" \
             --footer "Released at ${{ steps.date.outputs.today }}" \
             --footer-icon "https://i.griefed.de/images/2022/01/21/start_generation.png"

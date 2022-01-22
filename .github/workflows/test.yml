@@ -41,7 +41,7 @@ jobs:
           curl -L --output ./discord.sh https://raw.githubusercontent.com/ChaoticWeg/discord.sh/master/discord.sh
           chmod a+x ./discord.sh
           ./discord.sh \
-            --webhook-url="$WEBHOOK_URL" \
+            --webhook-url="${{ secrets.WEBHOOK_URL }}" \
             --username "$GITHUB_REPOSITORY" \
             --avatar "https://i.griefed.de/images/2020/11/18/Prosper_Docker_300x300.png" \
             --text "There's been a new release for $GITHUB_REPOSITORY. The new version is $GITHUB_REF_NAME and is available at <$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/tag/$GITHUB_REF_NAME>" \

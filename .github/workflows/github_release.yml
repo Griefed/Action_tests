@@ -3,10 +3,9 @@ name: Create GitHub Release after GitLab tag mirror
 on:
   push:
     tags:
-      - '!*-alpha.*'
-      - '!*-beta.*'
-      - '!*-pre.*'
-      - '*.*.*'
+      - '!**-alpha.*'
+      - '!**-beta.*'
+      - '!**-pre.*'
   workflow_dispatch:
 
 jobs:
